@@ -16,6 +16,8 @@ func merge(array [7]int, l int, m int, r int) {
 		R[j] = array[m + 1 + j]
 	}
 
+
+	fmt.Println(R, L)
 	var i, j int
 	k := l
 	for i < n1 && j < n2 {
@@ -40,20 +42,19 @@ func merge(array [7]int, l int, m int, r int) {
 		j++
 		k++
 	}
+	fmt.Println(array)
 }
 
-func sort(array [7]int, l int, r int) [7]int{
+func mergeSort(array [7]int, l int, r int) {
 	if l < r {
 		m := l + (r - l)/2
-
-		sort(array, l, m)
-		sort(array, m + 1, r)
-
+		mergeSort(array, l, m)
+		mergeSort(array, m + 1, r)
 		merge(array, l, m, r)
 	}
-	return array
+
 }
 
 func main() {
-	fmt.Println(sort([7]int{3, 8, 5, 4, 1, 9, -2}, 0, 6))
+	mergeSort([7]int{3, 8, 5, 4, 1, 9, -2}, 0, 6)
 }
