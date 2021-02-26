@@ -74,5 +74,5 @@ func main() {
 		root: false,
 	}
 	value := minimax(tree, 2, true)
-	fmt.Println(value)
+	fmt.Println("value returned:",value)
 }
